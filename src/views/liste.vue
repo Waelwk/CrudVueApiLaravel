@@ -1,41 +1,47 @@
 <template>
-  <section>
+  <section >
     <div>
       <h1>les utlisateurs:</h1>
       <div>
         <hr />
       </div>
-      <table border="1">
-        <tr>
-          <td>nom</td>
-          <td>prenom</td>
-          <td>email</td>
-          <td>
+      <table  class="table" >
+        <thead  class="table-info">
+        <tr >
+          <th scope="col">Nom</th>
+          <th scope="col">Prenom</th>
+          <th scope="col"> Email</th>
+          <th scope="col">
             <button
               type="button"
-              class="btn btn-primary align-items-center pull-right m-2"
-            >
+              class="btn btn-primary align-items-center pull-right m-2">
               <a href="/ajouter" class="text-light"> Ajouter</a>
             </button>
-          </td>
-          <td></td>
+          </th>
+          <th scope="col"></th>
+          
         </tr>
-        <tr v-for="todo of todos" v-bind:key="todo.id">
+
+        </thead>
+        <tbody>
+        <tr   class="table-light" v-for="todo of todos" v-bind:key="todo.id">
           <td>{{ todo.nom }}</td>
           <td>{{ todo.prenom }}</td>
           <td>{{ todo.email }}</td>
           <td>
             <button type="button" class="btn btn-success align-items-center">
-              <a v-bind:href="route + todo.id" class="text-light">modifier</a>
+              <a v-bind:href="route + todo.id" class="text-light"> modifier</a>
             </button>
           </td>
           <td>
-            <button type="button" v-on:click="supp(todo.id)">supp</button>
+            <button type="button" class="btn btn-danger" v-on:click="supp(todo.id)">supp</button>
           </td>
         </tr>
+        </tbody>
       </table>
     </div>
   </section>
+  
 </template>
 
 <script>
